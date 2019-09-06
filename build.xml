@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<project name="Inability" default="archive" basedir=".">
+    <description>the fact of not being able to do something</description>
+
+    <property file="build.properties"/>
+
+    <!-- Creates the output directories -->
+    <target name="init" description="Create the working directories">
+        <mkdir dir="${build.class}"/>
+        <mkdir dir="${dist}"/>
+    </target>
+
+    <!-- Compiles into the output directories -->
+    <target name="compile" depends="init" description="Compiles the source code">
+        <javac srcdir="${src}" destdir="${build.class}">
+            <!--<compilerarg value="-XDignore.symbol.file=true"/>-->
+        </javac>
+    </target>
+
+    <!-- Copy the web pages and configuration files -->
+    <target name="copy-resource" depends="compile" description="Copy the web files">
+        <echo message="Copying the web pages and configuration files"/>
+        <copy todir="${build.class.res}">
+            <fileset dir="${src.resource}"/>
+        </copy>
+    </target>
+
+    <!-- Creates the archive -->
+    <target name="archive" depends="copy-resource" description="Creates the JAR file">
+        <jar destfile="${app.jar}" basedir="${build.class}" manifest="${src}/META-INF/MANIFEST.MF"/>
+    </target>
+
+    <!-- Deletes the output directories -->
+    <target name="clean" depends="init" description="Removes the temporary directories used">
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>
+    </target>
+
+    <target name="execute" depends="compile" description="Runs the program">
+        <echo level="warning" message="running"/>
+        <java classname="gui.ClassEditor" classpath="${build.class}">
+        </java>
+    </target>
+
+</project>
