@@ -13,12 +13,14 @@
 
 package gui;
 
-import classfile.*;
+import classfile.ConstantPool;
+import classfile.ConstantPoolInfo;
+import classfile.Utils;
 import guihelper.JavaFileFilter;
-import java.io.File;
+
+import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import javax.swing.*;
 
 /**
  * Dialog to show classes referred from this class file.
@@ -27,7 +29,7 @@ import javax.swing.*;
  * @author 	Tanmay K. Mohapatra
  * @version     2.00, 16th December, 2001
  */
-public class RelatedClasses extends javax.swing.JDialog {
+public class RelatedClasses extends JDialog {
     
     String[] asClassList;
     String[] asDisplayList;
@@ -140,15 +142,15 @@ public class RelatedClasses extends javax.swing.JDialog {
     private void initComponents() {//GEN-BEGIN:initComponents
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lstRelatedClasses = new javax.swing.JList();
-        jLabel1 = new javax.swing.JLabel();
-        cmbFilter = new javax.swing.JComboBox();
-        jLabel2 = new javax.swing.JLabel();
-        txtFilePath = new javax.swing.JTextField();
-        btnBrowse = new javax.swing.JButton();
-        btnOpenClass = new javax.swing.JButton();
-        btnClose = new javax.swing.JButton();
+        jScrollPane1 = new JScrollPane();
+        lstRelatedClasses = new JList();
+        jLabel1 = new JLabel();
+        cmbFilter = new JComboBox();
+        jLabel2 = new JLabel();
+        txtFilePath = new JTextField();
+        btnBrowse = new JButton();
+        btnOpenClass = new JButton();
+        btnClose = new JButton();
 
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
@@ -257,11 +259,11 @@ public class RelatedClasses extends javax.swing.JDialog {
     
     private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
         String sFileName;
-        javax.swing.JFileChooser newFileChooser = new javax.swing.JFileChooser();
+        JFileChooser newFileChooser = new JFileChooser();
         newFileChooser.addChoosableFileFilter(new JavaFileFilter("class", "Class Files"));
         int returnVal = newFileChooser.showOpenDialog(this);
         
-        if(returnVal != javax.swing.JFileChooser.APPROVE_OPTION) {
+        if(returnVal != JFileChooser.APPROVE_OPTION) {
             return;
         }
         sFileName = newFileChooser.getSelectedFile().getAbsolutePath();
@@ -284,15 +286,15 @@ public class RelatedClasses extends javax.swing.JDialog {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBrowse;
-    private javax.swing.JButton btnClose;
-    private javax.swing.JButton btnOpenClass;
-    private javax.swing.JComboBox cmbFilter;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList lstRelatedClasses;
-    private javax.swing.JTextField txtFilePath;
+    private JButton btnBrowse;
+    private JButton btnClose;
+    private JButton btnOpenClass;
+    private JComboBox cmbFilter;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JScrollPane jScrollPane1;
+    private JList lstRelatedClasses;
+    private JTextField txtFilePath;
     // End of variables declaration//GEN-END:variables
     
 }

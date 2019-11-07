@@ -13,15 +13,17 @@
 
 package guihelper.attributes;
 
-import classfile.*;
+import classfile.ConstantPool;
+import classfile.ConstantPoolInfo;
+import classfile.Utils;
 import classfile.attributes.CodeAttribute;
 import classfile.attributes.ExceptionTableEntry;
-import java.awt.*;
-import java.awt.event.*;
+
 import javax.swing.*;
-import javax.swing.table.*;
-import java.util.Hashtable;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableColumn;
 import java.util.Enumeration;
+import java.util.Hashtable;
 
 /** This class manages the table model for the code exceptions list.
  * This is the interconnect between the UI and class file data.
@@ -31,7 +33,7 @@ import java.util.Enumeration;
  * @version    1.00, 23rd Mar, 2002
  */
 
-public class CodeExceptionsListTableModel extends javax.swing.table.AbstractTableModel {
+public class CodeExceptionsListTableModel extends AbstractTableModel {
 
     private final String[] columnNames = {
         "Index",

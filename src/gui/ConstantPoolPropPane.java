@@ -17,7 +17,9 @@ import classfile.ClassFile;
 import classfile.ConstantPoolInfo;
 import guihelper.*;
 import javax.swing.*;
-import javax.swing.table.TableColumn;
+import javax.swing.border.*;
+import javax.swing.event.*;
+import javax.swing.table.*;
 
 /**
  * Copyright (C) 2002-2003  Tanmay K. Mohapatra
@@ -26,7 +28,7 @@ import javax.swing.table.TableColumn;
  * @author 	Tanmay K. Mohapatra
  * @version     1.00, 30th January, 2002
  */
-public class ConstantPoolPropPane extends javax.swing.JPanel {
+public class ConstantPoolPropPane extends JPanel {
     private ClassFile           currClassFile;
     private int                 iFilterTag;
     private ConstantPoolInfo    prevConstPoolEntry;
@@ -162,7 +164,7 @@ public class ConstantPoolPropPane extends javax.swing.JPanel {
         }
     }
     
-    private void tblConstPoolValueChanged(javax.swing.event.ListSelectionEvent evt) {
+    private void tblConstPoolValueChanged(ListSelectionEvent evt) {
         if(evt.getValueIsAdjusting()) return;
         
         DefaultComboBoxModel dcm = new DefaultComboBoxModel();
@@ -254,52 +256,52 @@ public class ConstantPoolPropPane extends javax.swing.JPanel {
     private void initComponents() {//GEN-BEGIN:initComponents
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblConstPool = new javax.swing.JTable();
+        jScrollPane2 = new JScrollPane();
+        tblConstPool = new JTable();
         tblConstPool.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         ListSelectionModel tblSM = tblConstPool.getSelectionModel();
-        tblSM.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+        tblSM.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent evt) {
                 tblConstPoolValueChanged(evt);
             }
         });
 
-        detailsPanel = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        cmbPoolEntryType = new javax.swing.JComboBox(new String[] {"", "Class", "Double", "Fieldref", "Float", "Integer", "InterfaceMethodref", "Long", "Methodref", "NameAndType", "String", "Utf8"});
-        jLabel7 = new javax.swing.JLabel();
-        txtStringIndex = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        txtClassIndex = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        txtNameAndTypeIndex = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        txtNameIndex = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        txtDescriptorIndex = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        txtValue = new javax.swing.JTextField();
-        searchPanel = new javax.swing.JPanel();
-        jTextArea2 = new javax.swing.JTextArea();
-        txtConstPoolSearch = new javax.swing.JTextField();
-        btnConstPoolSearch = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        cmbFilter = new javax.swing.JComboBox(new String[] {"", "Class", "Double", "Fieldref", "Float", "Integer", "InterfaceMethodref", "Long", "Methodref", "NameAndType", "String", "Utf8"});
-        btnApplyFilter = new javax.swing.JButton();
-        editPanel = new javax.swing.JPanel();
-        btnAddNew = new javax.swing.JButton();
-        btnModify = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        navigatePanel = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        cmbJumpTo = new javax.swing.JComboBox();
-        btnJumpTo = new javax.swing.JButton();
-        descriptionPanel = new javax.swing.JPanel();
-        txtPoolTypeDesc = new javax.swing.JTextArea();
+        detailsPanel = new JPanel();
+        jLabel5 = new JLabel();
+        cmbPoolEntryType = new JComboBox(new String[] {"", "Class", "Double", "Fieldref", "Float", "Integer", "InterfaceMethodref", "Long", "Methodref", "NameAndType", "String", "Utf8"});
+        jLabel7 = new JLabel();
+        txtStringIndex = new JTextField();
+        jLabel8 = new JLabel();
+        txtClassIndex = new JTextField();
+        jLabel9 = new JLabel();
+        txtNameAndTypeIndex = new JTextField();
+        jLabel10 = new JLabel();
+        txtNameIndex = new JTextField();
+        jLabel11 = new JLabel();
+        txtDescriptorIndex = new JTextField();
+        jLabel12 = new JLabel();
+        txtValue = new JTextField();
+        searchPanel = new JPanel();
+        jTextArea2 = new JTextArea();
+        txtConstPoolSearch = new JTextField();
+        btnConstPoolSearch = new JButton();
+        jLabel1 = new JLabel();
+        cmbFilter = new JComboBox(new String[] {"", "Class", "Double", "Fieldref", "Float", "Integer", "InterfaceMethodref", "Long", "Methodref", "NameAndType", "String", "Utf8"});
+        btnApplyFilter = new JButton();
+        editPanel = new JPanel();
+        btnAddNew = new JButton();
+        btnModify = new JButton();
+        btnDelete = new JButton();
+        navigatePanel = new JPanel();
+        jLabel13 = new JLabel();
+        cmbJumpTo = new JComboBox();
+        btnJumpTo = new JButton();
+        descriptionPanel = new JPanel();
+        txtPoolTypeDesc = new JTextArea();
 
         setLayout(new java.awt.GridBagLayout());
 
-        setBorder(new javax.swing.border.TitledBorder("Constant Pool"));
+        setBorder(new TitledBorder("Constant Pool"));
         tblConstPool.setModel(new ConstPoolTableModel(null));
         tblConstPool.setShowHorizontalLines(false);
         jScrollPane2.setViewportView(tblConstPool);
@@ -313,7 +315,7 @@ public class ConstantPoolPropPane extends javax.swing.JPanel {
 
         detailsPanel.setLayout(new java.awt.GridBagLayout());
 
-        detailsPanel.setBorder(new javax.swing.border.TitledBorder("Details"));
+        detailsPanel.setBorder(new TitledBorder("Details"));
         jLabel5.setText("Type");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -404,7 +406,7 @@ public class ConstantPoolPropPane extends javax.swing.JPanel {
 
         searchPanel.setLayout(new java.awt.GridBagLayout());
 
-        searchPanel.setBorder(new javax.swing.border.TitledBorder("Search"));
+        searchPanel.setBorder(new TitledBorder("Search"));
         jTextArea2.setWrapStyleWord(true);
         jTextArea2.setEditable(false);
         jTextArea2.setText("Enter search string below and press Find \nto search from the current position");
@@ -463,7 +465,7 @@ public class ConstantPoolPropPane extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         add(searchPanel, gridBagConstraints);
 
-        editPanel.setBorder(new javax.swing.border.TitledBorder("Edit"));
+        editPanel.setBorder(new TitledBorder("Edit"));
         btnAddNew.setText("Add New");
         btnAddNew.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -496,7 +498,7 @@ public class ConstantPoolPropPane extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         add(editPanel, gridBagConstraints);
 
-        navigatePanel.setBorder(new javax.swing.border.TitledBorder("Navigate"));
+        navigatePanel.setBorder(new TitledBorder("Navigate"));
         jLabel13.setText("Go to");
         navigatePanel.add(jLabel13);
 
@@ -518,7 +520,7 @@ public class ConstantPoolPropPane extends javax.swing.JPanel {
 
         descriptionPanel.setLayout(new java.awt.GridLayout(1, 0));
 
-        descriptionPanel.setBorder(new javax.swing.border.TitledBorder("Description"));
+        descriptionPanel.setBorder(new TitledBorder("Description"));
         txtPoolTypeDesc.setWrapStyleWord(true);
         txtPoolTypeDesc.setLineWrap(true);
         txtPoolTypeDesc.setEditable(false);
@@ -802,40 +804,40 @@ public class ConstantPoolPropPane extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddNew;
-    private javax.swing.JButton btnApplyFilter;
-    private javax.swing.JButton btnConstPoolSearch;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnJumpTo;
-    private javax.swing.JButton btnModify;
-    private javax.swing.JComboBox cmbFilter;
-    private javax.swing.JComboBox cmbJumpTo;
-    private javax.swing.JComboBox cmbPoolEntryType;
-    private javax.swing.JPanel descriptionPanel;
-    private javax.swing.JPanel detailsPanel;
-    private javax.swing.JPanel editPanel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JPanel navigatePanel;
-    private javax.swing.JPanel searchPanel;
-    private javax.swing.JTable tblConstPool;
-    private javax.swing.JTextField txtClassIndex;
-    private javax.swing.JTextField txtConstPoolSearch;
-    private javax.swing.JTextField txtDescriptorIndex;
-    private javax.swing.JTextField txtNameAndTypeIndex;
-    private javax.swing.JTextField txtNameIndex;
-    private javax.swing.JTextArea txtPoolTypeDesc;
-    private javax.swing.JTextField txtStringIndex;
-    private javax.swing.JTextField txtValue;
+    private JButton btnAddNew;
+    private JButton btnApplyFilter;
+    private JButton btnConstPoolSearch;
+    private JButton btnDelete;
+    private JButton btnJumpTo;
+    private JButton btnModify;
+    private JComboBox cmbFilter;
+    private JComboBox cmbJumpTo;
+    private JComboBox cmbPoolEntryType;
+    private JPanel descriptionPanel;
+    private JPanel detailsPanel;
+    private JPanel editPanel;
+    private JLabel jLabel1;
+    private JLabel jLabel10;
+    private JLabel jLabel11;
+    private JLabel jLabel12;
+    private JLabel jLabel13;
+    private JLabel jLabel5;
+    private JLabel jLabel7;
+    private JLabel jLabel8;
+    private JLabel jLabel9;
+    private JScrollPane jScrollPane2;
+    private JTextArea jTextArea2;
+    private JPanel navigatePanel;
+    private JPanel searchPanel;
+    private JTable tblConstPool;
+    private JTextField txtClassIndex;
+    private JTextField txtConstPoolSearch;
+    private JTextField txtDescriptorIndex;
+    private JTextField txtNameAndTypeIndex;
+    private JTextField txtNameIndex;
+    private JTextArea txtPoolTypeDesc;
+    private JTextField txtStringIndex;
+    private JTextField txtValue;
     // End of variables declaration//GEN-END:variables
     
 }

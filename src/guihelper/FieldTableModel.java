@@ -29,7 +29,7 @@ import java.util.Enumeration;
  * @author     Tanmay K. Mohapatra
  * @version    1.01, 15th Jan, 2002
  */
-public class FieldTableModel extends javax.swing.table.AbstractTableModel {
+public class FieldTableModel extends AbstractTableModel {
     
     private final String[] columnNames = {
         "Index",

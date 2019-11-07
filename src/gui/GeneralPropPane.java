@@ -16,11 +16,17 @@ package gui;
 
 import classfile.ClassFile;
 import classfile.ConstantPoolInfo;
-import gui.attributes.*;
+import gui.attributes.AttributesDialog;
 import guihelper.AttributeTreeNode;
 
-import javax.swing.tree.*;
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeSelectionModel;
 
 /**
  * Copyright (C) 2002-2003  Tanmay K. Mohapatra
@@ -29,17 +35,17 @@ import javax.swing.JOptionPane;
  * @author 	Tanmay K. Mohapatra
  * @version     1.02, 02nd February, 2002
  */
-public class GeneralPropPane extends javax.swing.JPanel {
+public class GeneralPropPane extends JPanel {
     
     private ClassFile currClassFile;
-    private javax.swing.tree.DefaultMutableTreeNode interfacesRootNode;
+    private DefaultMutableTreeNode interfacesRootNode;
     private boolean bEditable;
     
     /** Creates new form GeneralPropPane */
     public GeneralPropPane() {
         initComponents();
-        treeInterfaces.getSelectionModel().setSelectionMode(javax.swing.tree.TreeSelectionModel.SINGLE_TREE_SELECTION);
-        ((DefaultTreeCellRenderer)treeInterfaces.getCellRenderer()).setLeafIcon(new javax.swing.ImageIcon(getClass().getResource("/res/interface.gif")));
+        treeInterfaces.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+        ((DefaultTreeCellRenderer)treeInterfaces.getCellRenderer()).setLeafIcon(new ImageIcon(getClass().getResource("/res/interface.gif")));
     }
     
     public void setModifyMode(boolean bEditableIn) {
@@ -125,7 +131,7 @@ public class GeneralPropPane extends javax.swing.JPanel {
         int iNumInterfaces = currClassFile.interfaces.getInterfacesCount();
         for(int iIndex=0; iIndex < iNumInterfaces; iIndex++) {
             String sName = currClassFile.interfaces.getInterfaceName(iIndex);
-            javax.swing.tree.DefaultMutableTreeNode treeNode = new javax.swing.tree.DefaultMutableTreeNode(sName);
+            DefaultMutableTreeNode treeNode = new DefaultMutableTreeNode(sName);
             treeNode.setUserObject(sName);
             interfacesRootNode.add(treeNode);
         }
@@ -156,50 +162,50 @@ public class GeneralPropPane extends javax.swing.JPanel {
     private void initComponents() {//GEN-BEGIN:initComponents
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        lblClassName = new javax.swing.JLabel();
-        txtClassName = new javax.swing.JTextField();
-        lblSuperClassName = new javax.swing.JLabel();
-        txtSuperClassName = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        lblMagicNumber = new javax.swing.JLabel();
-        txtMagicNumber = new javax.swing.JTextField();
-        lblMajorVersion = new javax.swing.JLabel();
-        txtMajorVersion = new javax.swing.JTextField();
-        lblMinorVersion = new javax.swing.JLabel();
-        txtMinorVersion = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
-        chkFinal = new javax.swing.JCheckBox();
-        chkPublic = new javax.swing.JCheckBox();
-        chkInterface = new javax.swing.JCheckBox();
-        chkSuper = new javax.swing.JCheckBox();
-        chkAbstract = new javax.swing.JCheckBox();
-        jPanel5 = new javax.swing.JPanel();
-        btnShowEditAttribs = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
-        btnDiscardChanges = new javax.swing.JButton();
-        btnAcceptChanges = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        treeInterfaces = new javax.swing.JTree(interfacesRootNode = new javax.swing.tree.DefaultMutableTreeNode(""));
-        btnDeleteInterface = new javax.swing.JButton();
-        lblModifiedName = new javax.swing.JLabel();
-        txtNewInterfaceName = new javax.swing.JTextField();
-        btnModifyInterface = new javax.swing.JButton();
-        lblConstPoolIndex = new javax.swing.JLabel();
-        txtConstPoolIndex = new javax.swing.JTextField();
-        btnAddNewInterface = new javax.swing.JButton();
-        txtHelpText = new javax.swing.JTextArea();
+        jPanel1 = new JPanel();
+        jPanel2 = new JPanel();
+        lblClassName = new JLabel();
+        txtClassName = new JTextField();
+        lblSuperClassName = new JLabel();
+        txtSuperClassName = new JTextField();
+        jPanel3 = new JPanel();
+        lblMagicNumber = new JLabel();
+        txtMagicNumber = new JTextField();
+        lblMajorVersion = new JLabel();
+        txtMajorVersion = new JTextField();
+        lblMinorVersion = new JLabel();
+        txtMinorVersion = new JTextField();
+        jPanel4 = new JPanel();
+        chkFinal = new JCheckBox();
+        chkPublic = new JCheckBox();
+        chkInterface = new JCheckBox();
+        chkSuper = new JCheckBox();
+        chkAbstract = new JCheckBox();
+        jPanel5 = new JPanel();
+        btnShowEditAttribs = new JButton();
+        jPanel6 = new JPanel();
+        btnDiscardChanges = new JButton();
+        btnAcceptChanges = new JButton();
+        jPanel7 = new JPanel();
+        jScrollPane1 = new JScrollPane();
+        treeInterfaces = new JTree(interfacesRootNode = new DefaultMutableTreeNode(""));
+        btnDeleteInterface = new JButton();
+        lblModifiedName = new JLabel();
+        txtNewInterfaceName = new JTextField();
+        btnModifyInterface = new JButton();
+        lblConstPoolIndex = new JLabel();
+        txtConstPoolIndex = new JTextField();
+        btnAddNewInterface = new JButton();
+        txtHelpText = new JTextArea();
 
         setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setBorder(new javax.swing.border.TitledBorder(null, "Class Properties", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        jPanel1.setBorder(new TitledBorder(null, "Class Properties", TitledBorder.LEFT, TitledBorder.DEFAULT_POSITION));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jPanel2.setBorder(new javax.swing.border.TitledBorder("Names"));
+        jPanel2.setBorder(new TitledBorder("Names"));
         lblClassName.setText("Class Name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -232,7 +238,7 @@ public class GeneralPropPane extends javax.swing.JPanel {
 
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        jPanel3.setBorder(new javax.swing.border.TitledBorder("Version"));
+        jPanel3.setBorder(new TitledBorder("Version"));
         lblMagicNumber.setText("Magic Number");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -279,7 +285,7 @@ public class GeneralPropPane extends javax.swing.JPanel {
 
         jPanel4.setLayout(new java.awt.GridLayout(2, 3));
 
-        jPanel4.setBorder(new javax.swing.border.TitledBorder("Access"));
+        jPanel4.setBorder(new TitledBorder("Access"));
         chkFinal.setText("final");
         jPanel4.add(chkFinal);
 
@@ -301,7 +307,7 @@ public class GeneralPropPane extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         jPanel1.add(jPanel4, gridBagConstraints);
 
-        jPanel5.setBorder(new javax.swing.border.TitledBorder("Attributes"));
+        jPanel5.setBorder(new TitledBorder("Attributes"));
         btnShowEditAttribs.setText("Show/Edit Attributes");
         btnShowEditAttribs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,7 +323,7 @@ public class GeneralPropPane extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         jPanel1.add(jPanel5, gridBagConstraints);
 
-        jPanel6.setBorder(new javax.swing.border.TitledBorder("Property Changes"));
+        jPanel6.setBorder(new TitledBorder("Property Changes"));
         btnDiscardChanges.setText("Discard");
         btnDiscardChanges.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -349,12 +355,12 @@ public class GeneralPropPane extends javax.swing.JPanel {
 
         jPanel7.setLayout(new java.awt.GridBagLayout());
 
-        jPanel7.setBorder(new javax.swing.border.TitledBorder("Interfaces"));
+        jPanel7.setBorder(new TitledBorder("Interfaces"));
         treeInterfaces.setToolTipText("");
         treeInterfaces.setEditable(true);
         treeInterfaces.setRootVisible(false);
-        treeInterfaces.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
-            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+        treeInterfaces.addTreeSelectionListener(new TreeSelectionListener() {
+            public void valueChanged(TreeSelectionEvent evt) {
                 treeInterfacesValueChanged(evt);
             }
         });
@@ -368,7 +374,7 @@ public class GeneralPropPane extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         jPanel7.add(jScrollPane1, gridBagConstraints);
 
-        btnDeleteInterface.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/close1.gif")));
+        btnDeleteInterface.setIcon(new ImageIcon(getClass().getResource("/res/close1.gif")));
         btnDeleteInterface.setText("Delete");
         btnDeleteInterface.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -509,7 +515,7 @@ public class GeneralPropPane extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnModifyInterfaceActionPerformed
     
-    private void treeInterfacesValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_treeInterfacesValueChanged
+    private void treeInterfacesValueChanged(TreeSelectionEvent evt) {//GEN-FIRST:event_treeInterfacesValueChanged
         DefaultMutableTreeNode node = (DefaultMutableTreeNode)treeInterfaces.getLastSelectedPathComponent();
         if (node == null) return;
         txtNewInterfaceName.setText((String)node.getUserObject());
@@ -525,41 +531,41 @@ public class GeneralPropPane extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAcceptChanges;
-    private javax.swing.JButton btnAddNewInterface;
-    private javax.swing.JButton btnDeleteInterface;
-    private javax.swing.JButton btnDiscardChanges;
-    private javax.swing.JButton btnModifyInterface;
-    private javax.swing.JButton btnShowEditAttribs;
-    private javax.swing.JCheckBox chkAbstract;
-    private javax.swing.JCheckBox chkFinal;
-    private javax.swing.JCheckBox chkInterface;
-    private javax.swing.JCheckBox chkPublic;
-    private javax.swing.JCheckBox chkSuper;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblClassName;
-    private javax.swing.JLabel lblConstPoolIndex;
-    private javax.swing.JLabel lblMagicNumber;
-    private javax.swing.JLabel lblMajorVersion;
-    private javax.swing.JLabel lblMinorVersion;
-    private javax.swing.JLabel lblModifiedName;
-    private javax.swing.JLabel lblSuperClassName;
-    private javax.swing.JTree treeInterfaces;
-    private javax.swing.JTextField txtClassName;
-    private javax.swing.JTextField txtConstPoolIndex;
-    private javax.swing.JTextArea txtHelpText;
-    private javax.swing.JTextField txtMagicNumber;
-    private javax.swing.JTextField txtMajorVersion;
-    private javax.swing.JTextField txtMinorVersion;
-    private javax.swing.JTextField txtNewInterfaceName;
-    private javax.swing.JTextField txtSuperClassName;
+    private JButton btnAcceptChanges;
+    private JButton btnAddNewInterface;
+    private JButton btnDeleteInterface;
+    private JButton btnDiscardChanges;
+    private JButton btnModifyInterface;
+    private JButton btnShowEditAttribs;
+    private JCheckBox chkAbstract;
+    private JCheckBox chkFinal;
+    private JCheckBox chkInterface;
+    private JCheckBox chkPublic;
+    private JCheckBox chkSuper;
+    private JPanel jPanel1;
+    private JPanel jPanel2;
+    private JPanel jPanel3;
+    private JPanel jPanel4;
+    private JPanel jPanel5;
+    private JPanel jPanel6;
+    private JPanel jPanel7;
+    private JScrollPane jScrollPane1;
+    private JLabel lblClassName;
+    private JLabel lblConstPoolIndex;
+    private JLabel lblMagicNumber;
+    private JLabel lblMajorVersion;
+    private JLabel lblMinorVersion;
+    private JLabel lblModifiedName;
+    private JLabel lblSuperClassName;
+    private JTree treeInterfaces;
+    private JTextField txtClassName;
+    private JTextField txtConstPoolIndex;
+    private JTextArea txtHelpText;
+    private JTextField txtMagicNumber;
+    private JTextField txtMajorVersion;
+    private JTextField txtMinorVersion;
+    private JTextField txtNewInterfaceName;
+    private JTextField txtSuperClassName;
     // End of variables declaration//GEN-END:variables
     
 }

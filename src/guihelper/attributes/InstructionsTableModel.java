@@ -12,16 +12,12 @@
 
 package guihelper.attributes;
 
-import classfile.*;
+import classfile.ConstantPool;
 import classfile.attributes.Code;
 import classfile.attributes.Instruction;
-import classfile.attributes.ExceptionTableEntry;
-import java.awt.*;
-import java.awt.event.*;
+
 import javax.swing.*;
-import javax.swing.table.*;
-import java.util.Hashtable;
-import java.util.Enumeration;
+import javax.swing.table.AbstractTableModel;
 
 /** This class manages the table model for the code instructions list.
  * This is the interconnect between the UI and class file data.
@@ -31,7 +27,7 @@ import java.util.Enumeration;
  * @version    1.00, 11th May, 2002
  */
 
-public class InstructionsTableModel extends javax.swing.table.AbstractTableModel {
+public class InstructionsTableModel extends AbstractTableModel {
     private final String[] columnNames = {
         "Index",
         "Byte Index",

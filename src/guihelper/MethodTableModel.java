@@ -34,7 +34,7 @@ import java.util.StringTokenizer;
  * @version    1.02, 14th Mar, 2002
  */
 
-public class MethodTableModel extends javax.swing.table.AbstractTableModel {
+public class MethodTableModel extends AbstractTableModel {
 
     private final String[] columnNames = {
         "Index",

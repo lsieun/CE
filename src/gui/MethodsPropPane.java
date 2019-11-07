@@ -19,15 +19,15 @@ package gui;
 
 import classfile.ClassFile;
 import classfile.MethodInfo;
-import classfile.AccessFlags;
 import classfile.attributes.Attributes;
-import classfile.ConstantPoolInfo;
-import classfile.Utils;
-import gui.attributes.*;
-import guihelper.*;
+import gui.attributes.AttributesDialog;
+import guihelper.AttributeTreeNode;
+import guihelper.MethodTableModel;
 
-import java.awt.Component;
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 
 /**
@@ -37,7 +37,7 @@ import javax.swing.table.TableColumn;
  * @author 	Tanmay K. Mohapatra
  * @version     1.03, 23rd March, 2002
  */
-public class MethodsPropPane extends javax.swing.JPanel {
+public class MethodsPropPane extends JPanel {
     
     private ClassFile   currClassFile;
     private int iPrevMethod;
@@ -116,26 +116,26 @@ public class MethodsPropPane extends javax.swing.JPanel {
     private void initComponents() {//GEN-BEGIN:initComponents
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblMethodNames = new javax.swing.JTable();
+        jScrollPane1 = new JScrollPane();
+        tblMethodNames = new JTable();
         tblMethodNames.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         ListSelectionModel tblSM = tblMethodNames.getSelectionModel();
-        tblSM.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+        tblSM.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent evt) {
                 tblMethodNamesValueChanged(evt);
             }
         });
-        jPanel3 = new javax.swing.JPanel();
-        jTextArea1 = new javax.swing.JTextArea();
-        txtMethodSearch = new javax.swing.JTextField();
-        btnMethodSearch = new javax.swing.JButton();
-        panelAttribs = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        lblNumMethodAttribs = new javax.swing.JLabel();
-        btnShowMethodAttribs = new javax.swing.JButton();
-        panelEdit = new javax.swing.JPanel();
-        btnAddMethod = new javax.swing.JButton();
-        btnRemoveMethod = new javax.swing.JButton();
+        jPanel3 = new JPanel();
+        jTextArea1 = new JTextArea();
+        txtMethodSearch = new JTextField();
+        btnMethodSearch = new JButton();
+        panelAttribs = new JPanel();
+        jLabel5 = new JLabel();
+        lblNumMethodAttribs = new JLabel();
+        btnShowMethodAttribs = new JButton();
+        panelEdit = new JPanel();
+        btnAddMethod = new JButton();
+        btnRemoveMethod = new JButton();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -152,7 +152,7 @@ public class MethodsPropPane extends javax.swing.JPanel {
 
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        jPanel3.setBorder(new javax.swing.border.TitledBorder("Search"));
+        jPanel3.setBorder(new TitledBorder("Search"));
         jTextArea1.setEditable(false);
         jTextArea1.setText("Enter search string below and press Find \nto search from the current position");
         jTextArea1.setBackground(new java.awt.Color(204, 204, 255));
@@ -192,7 +192,7 @@ public class MethodsPropPane extends javax.swing.JPanel {
 
         panelAttribs.setLayout(new java.awt.GridBagLayout());
 
-        panelAttribs.setBorder(new javax.swing.border.TitledBorder("Method Attributes"));
+        panelAttribs.setBorder(new TitledBorder("Method Attributes"));
         jLabel5.setText("Number of Attributes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -223,7 +223,7 @@ public class MethodsPropPane extends javax.swing.JPanel {
 
         panelEdit.setLayout(new java.awt.GridBagLayout());
 
-        panelEdit.setBorder(new javax.swing.border.TitledBorder("Edit"));
+        panelEdit.setBorder(new TitledBorder("Edit"));
         btnAddMethod.setText("Add New");
         btnAddMethod.setEnabled(false);
         btnAddMethod.addActionListener(new java.awt.event.ActionListener() {
@@ -299,7 +299,7 @@ public class MethodsPropPane extends javax.swing.JPanel {
         tblMethodNames.changeSelection(tblMethodNames.getModel().getRowCount()-1, 1, false, false);
     }//GEN-LAST:event_btnAddMethodActionPerformed
     
-    private void tblMethodNamesValueChanged(javax.swing.event.ListSelectionEvent evt) {
+    private void tblMethodNamesValueChanged(ListSelectionEvent evt) {
         if(evt.getValueIsAdjusting()) return;
         if((null == currClassFile) || (null == currClassFile.methods) || 
            (currClassFile.methods.getMethodsCount() == 0)) {
@@ -326,19 +326,19 @@ public class MethodsPropPane extends javax.swing.JPanel {
     }//GEN-LAST:event_btnMethodSearchActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddMethod;
-    private javax.swing.JButton btnMethodSearch;
-    private javax.swing.JButton btnRemoveMethod;
-    private javax.swing.JButton btnShowMethodAttribs;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel lblNumMethodAttribs;
-    private javax.swing.JPanel panelAttribs;
-    private javax.swing.JPanel panelEdit;
-    private javax.swing.JTable tblMethodNames;
-    private javax.swing.JTextField txtMethodSearch;
+    private JButton btnAddMethod;
+    private JButton btnMethodSearch;
+    private JButton btnRemoveMethod;
+    private JButton btnShowMethodAttribs;
+    private JLabel jLabel5;
+    private JPanel jPanel3;
+    private JScrollPane jScrollPane1;
+    private JTextArea jTextArea1;
+    private JLabel lblNumMethodAttribs;
+    private JPanel panelAttribs;
+    private JPanel panelEdit;
+    private JTable tblMethodNames;
+    private JTextField txtMethodSearch;
     // End of variables declaration//GEN-END:variables
     
 }

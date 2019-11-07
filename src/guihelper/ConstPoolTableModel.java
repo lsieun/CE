@@ -14,6 +14,7 @@ package guihelper;
 
 import classfile.*;
 import javax.swing.ImageIcon;
+import javax.swing.table.AbstractTableModel;
 
 /**
  * The table model for Constant Pool GUI. THis class is the link between the
@@ -23,7 +24,7 @@ import javax.swing.ImageIcon;
  * @author 	Tanmay K. Mohapatra
  * @version     1.00, 23rd December, 2001
  */
-public class ConstPoolTableModel extends javax.swing.table.AbstractTableModel {
+public class ConstPoolTableModel extends AbstractTableModel {
     
     private final String[] columnNames = {
         "Index",
@@ -53,18 +54,18 @@ public class ConstPoolTableModel extends javax.swing.table.AbstractTableModel {
     /** Creates new ConstPooTableModel */
     public ConstPoolTableModel(ConstantPool constPoolIn) {
         constPool = constPoolIn;
-        imgClass = new javax.swing.ImageIcon(getClass().getResource("/res/class.gif"));
-        imgField = new javax.swing.ImageIcon(getClass().getResource("/res/field.gif"));
-        imgMethod = new javax.swing.ImageIcon(getClass().getResource("/res/method.gif"));
-        imgIface = new javax.swing.ImageIcon(getClass().getResource("/res/interface.gif"));
-        imgString = new javax.swing.ImageIcon(getClass().getResource("/res/string.gif"));
-        imgInt = new javax.swing.ImageIcon(getClass().getResource("/res/integer.gif"));
-        imgFloat = new javax.swing.ImageIcon(getClass().getResource("/res/float.gif"));
-        imgLong = new javax.swing.ImageIcon(getClass().getResource("/res/long.gif"));
-        imgDouble = new javax.swing.ImageIcon(getClass().getResource("/res/double.gif"));
-        imgNameAndType = new javax.swing.ImageIcon(getClass().getResource("/res/nameandtype.gif"));
-        imgUTF = new javax.swing.ImageIcon(getClass().getResource("/res/utf.gif"));
-        imgUnknown = new javax.swing.ImageIcon(getClass().getResource("/res/report1.gif"));
+        imgClass = new ImageIcon(getClass().getResource("/res/class.gif"));
+        imgField = new ImageIcon(getClass().getResource("/res/field.gif"));
+        imgMethod = new ImageIcon(getClass().getResource("/res/method.gif"));
+        imgIface = new ImageIcon(getClass().getResource("/res/interface.gif"));
+        imgString = new ImageIcon(getClass().getResource("/res/string.gif"));
+        imgInt = new ImageIcon(getClass().getResource("/res/integer.gif"));
+        imgFloat = new ImageIcon(getClass().getResource("/res/float.gif"));
+        imgLong = new ImageIcon(getClass().getResource("/res/long.gif"));
+        imgDouble = new ImageIcon(getClass().getResource("/res/double.gif"));
+        imgNameAndType = new ImageIcon(getClass().getResource("/res/nameandtype.gif"));
+        imgUTF = new ImageIcon(getClass().getResource("/res/utf.gif"));
+        imgUnknown = new ImageIcon(getClass().getResource("/res/report1.gif"));
         createData();
     }
     

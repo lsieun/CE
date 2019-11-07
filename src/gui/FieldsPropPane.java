@@ -20,13 +20,15 @@ package gui;
 
 import classfile.ClassFile;
 import classfile.FieldInfo;
-import classfile.AccessFlags;
-import classfile.ConstantPoolInfo;
 import classfile.attributes.Attributes;
-import classfile.Utils;
-import gui.attributes.*;
-import guihelper.*;
+import gui.attributes.AttributesDialog;
+import guihelper.AttributeTreeNode;
+import guihelper.FieldTableModel;
+
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableColumn;
 
 /** This class displays the table model for the fields list.
@@ -35,7 +37,7 @@ import javax.swing.table.TableColumn;
  * @author 	Tanmay K. Mohapatra
  * @version    1.04, 23rd Mar, 2002
  */
-public class FieldsPropPane extends javax.swing.JPanel {
+public class FieldsPropPane extends JPanel {
     private ClassFile   currClassFile;
     private int iPrevFld = -1;
     private boolean bEditable;
@@ -106,7 +108,7 @@ public class FieldsPropPane extends javax.swing.JPanel {
         }
     }
     
-    private void tblFieldValueChanged(javax.swing.event.ListSelectionEvent evt) {
+    private void tblFieldValueChanged(ListSelectionEvent evt) {
         if(evt.getValueIsAdjusting()) return;
         if((null == currClassFile) || (null == currClassFile.fields) || 
            (currClassFile.fields.getFieldsCount() == 0)) {
@@ -132,26 +134,26 @@ public class FieldsPropPane extends javax.swing.JPanel {
     private void initComponents() {//GEN-BEGIN:initComponents
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblField = new javax.swing.JTable();
+        jScrollPane1 = new JScrollPane();
+        tblField = new JTable();
         tblField.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         ListSelectionModel tblSM = tblField.getSelectionModel();
-        tblSM.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+        tblSM.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent evt) {
                 tblFieldValueChanged(evt);
             }
         });
-        srchPanel = new javax.swing.JPanel();
-        jTextArea2 = new javax.swing.JTextArea();
-        txtFldSearch = new javax.swing.JTextField();
-        btnFldSearch = new javax.swing.JButton();
-        attribPanel = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        lblNumFldAttribs = new javax.swing.JLabel();
-        btnShowFldAttribs = new javax.swing.JButton();
-        editPanel = new javax.swing.JPanel();
-        btnAddFld = new javax.swing.JButton();
-        btnDelFld = new javax.swing.JButton();
+        srchPanel = new JPanel();
+        jTextArea2 = new JTextArea();
+        txtFldSearch = new JTextField();
+        btnFldSearch = new JButton();
+        attribPanel = new JPanel();
+        jLabel5 = new JLabel();
+        lblNumFldAttribs = new JLabel();
+        btnShowFldAttribs = new JButton();
+        editPanel = new JPanel();
+        btnAddFld = new JButton();
+        btnDelFld = new JButton();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -169,7 +171,7 @@ public class FieldsPropPane extends javax.swing.JPanel {
 
         srchPanel.setLayout(new java.awt.GridBagLayout());
 
-        srchPanel.setBorder(new javax.swing.border.TitledBorder("Search"));
+        srchPanel.setBorder(new TitledBorder("Search"));
         jTextArea2.setText("Enter search string below and press Find \nto search from the current position");
         jTextArea2.setBackground(new java.awt.Color(204, 204, 255));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -208,7 +210,7 @@ public class FieldsPropPane extends javax.swing.JPanel {
 
         attribPanel.setLayout(new java.awt.GridBagLayout());
 
-        attribPanel.setBorder(new javax.swing.border.TitledBorder("Field Attributes"));
+        attribPanel.setBorder(new TitledBorder("Field Attributes"));
         jLabel5.setText("Number of Attributes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -240,7 +242,7 @@ public class FieldsPropPane extends javax.swing.JPanel {
 
         editPanel.setLayout(new java.awt.GridBagLayout());
 
-        editPanel.setBorder(new javax.swing.border.TitledBorder("Edit"));
+        editPanel.setBorder(new TitledBorder("Edit"));
         btnAddFld.setText("Add New");
         btnAddFld.setEnabled(false);
         btnAddFld.addActionListener(new java.awt.event.ActionListener() {
@@ -322,19 +324,19 @@ public class FieldsPropPane extends javax.swing.JPanel {
         
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel attribPanel;
-    private javax.swing.JButton btnAddFld;
-    private javax.swing.JButton btnDelFld;
-    private javax.swing.JButton btnFldSearch;
-    private javax.swing.JButton btnShowFldAttribs;
-    private javax.swing.JPanel editPanel;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JLabel lblNumFldAttribs;
-    private javax.swing.JPanel srchPanel;
-    private javax.swing.JTable tblField;
-    private javax.swing.JTextField txtFldSearch;
+    private JPanel attribPanel;
+    private JButton btnAddFld;
+    private JButton btnDelFld;
+    private JButton btnFldSearch;
+    private JButton btnShowFldAttribs;
+    private JPanel editPanel;
+    private JLabel jLabel5;
+    private JScrollPane jScrollPane1;
+    private JTextArea jTextArea2;
+    private JLabel lblNumFldAttribs;
+    private JPanel srchPanel;
+    private JTable tblField;
+    private JTextField txtFldSearch;
     // End of variables declaration//GEN-END:variables
 }
 

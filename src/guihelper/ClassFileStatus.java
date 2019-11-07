@@ -1,6 +1,6 @@
 /*
  * ClassFileStatus.java
- * 
+ *
  * Created on April 29, 2001
  *
  * Modification Log:
@@ -12,24 +12,23 @@
 
 package guihelper;
 
-import javax.swing.tree.*;
-import java.io.File;
 import classfile.ClassFile;
+
+import javax.swing.tree.DefaultMutableTreeNode;
+import java.io.File;
 
 /**
  * Class to maintain status of an open file. The GUI class can keep an
  * array of this class to maintain multiple open files. Provides a level
- * of abstraction from file paths, keeps track of backups and 
+ * of abstraction from file paths, keeps track of backups and
  * modification status.
- *<br><br>
- * 
+ * <br><br>
  *
- * @author      Tanmay K. Mohapatra
- * @version     1.00, 29th April, 2001
+ * @author Tanmay K. Mohapatra
+ * @version 1.00, 29th April, 2001
  */
 
-public class ClassFileStatus extends DefaultMutableTreeNode
-{
+public class ClassFileStatus extends DefaultMutableTreeNode {
     public ClassFile classFile;
     boolean bDirty; // modified, save required
     public boolean bBackupCreated;
@@ -37,8 +36,7 @@ public class ClassFileStatus extends DefaultMutableTreeNode
     public String sPath;
     public String sFileName;
 
-    public ClassFileStatus(String sFileNameIn, ClassFile classFileIn)
-    {
+    public ClassFileStatus(String sFileNameIn, ClassFile classFileIn) {
         sFileName = sFileNameIn;
         File fTemp = new java.io.File(sFileName);
         sClassName = fTemp.getName();
@@ -47,20 +45,17 @@ public class ClassFileStatus extends DefaultMutableTreeNode
         this.setUserObject(getTreeDisplayString());
     }
 
-    public String getTreeDisplayString()
-    {
+    public String getTreeDisplayString() {
         String sStr = sClassName;
-        if(bDirty) sStr += "*";
+        if (bDirty) sStr += "*";
         sStr += (" (" + sPath + ")");
         return sStr;
     }
 
-    public void setDirtyFlag(boolean bDirtyIn)
-    {
-        if(bDirty != bDirtyIn)
-        {
-                bDirty = bDirtyIn;
-                setUserObject(getTreeDisplayString());
+    public void setDirtyFlag(boolean bDirtyIn) {
+        if (bDirty != bDirtyIn) {
+            bDirty = bDirtyIn;
+            setUserObject(getTreeDisplayString());
         }
     }
 }

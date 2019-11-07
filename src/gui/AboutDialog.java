@@ -16,6 +16,8 @@
 
 package gui;
 
+import javax.swing.*;
+
 /**
  * The About dialog. Dialog to show information about this utility.
  * <br>
@@ -24,10 +26,10 @@ package gui;
  * @version     2.00, 22nd September, 2001
  */
 
-class AboutDialog extends java.awt.Dialog {
+class AboutDialog extends JDialog {
     
     /** Creates new form AboutDialog */
-    public AboutDialog(java.awt.Frame parent, boolean modal) {
+    public AboutDialog(JFrame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -40,9 +42,9 @@ class AboutDialog extends java.awt.Dialog {
     private void initComponents() {//GEN-BEGIN:initComponents
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new JLabel();
+        jLabel2 = new JLabel();
+        jTextArea1 = new JTextArea();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -56,7 +58,7 @@ class AboutDialog extends java.awt.Dialog {
         });
 
         jLabel1.setBackground(java.awt.Color.white);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/large/classeditor.gif")));
+        jLabel1.setIcon(new ImageIcon(getClass().getResource("/res/large/classeditor.gif")));
         jLabel1.setText("ClassEditor Version 2.23");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
@@ -96,9 +98,9 @@ class AboutDialog extends java.awt.Dialog {
     }//GEN-LAST:event_closeDialog
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextArea jTextArea1;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
     
 }

@@ -30,7 +30,7 @@ import java.util.Enumeration;
  * @version    1.00, 05th May, 2002
  */
 
-public class ExceptionsListTableModel extends javax.swing.table.AbstractTableModel {
+public class ExceptionsListTableModel extends AbstractTableModel {
 
     private final String[] columnNames = {
         "Index",

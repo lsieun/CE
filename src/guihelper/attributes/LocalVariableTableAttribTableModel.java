@@ -34,7 +34,7 @@ import java.util.Enumeration;
  * @version    1.20, 19th May, 2002
  */
 
-public class LocalVariableTableAttribTableModel extends javax.swing.table.AbstractTableModel {
+public class LocalVariableTableAttribTableModel extends AbstractTableModel {
     
     private final String[] columnNames = {
         "Index in method",

@@ -13,11 +13,10 @@
 
 package guihelper;
 
+import javax.swing.filechooser.FileFilter;
 import java.io.File;
-import java.util.Hashtable;
 import java.util.Enumeration;
-import javax.swing.*;
-import javax.swing.filechooser.*;
+import java.util.Hashtable;
 
 /**
  * A File filter for Java class files. Used in file open, save and save as

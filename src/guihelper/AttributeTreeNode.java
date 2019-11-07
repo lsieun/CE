@@ -12,13 +12,13 @@
 
 package guihelper;
 
-import classfile.*;
 import classfile.attributes.Attribute;
 import classfile.attributes.Attributes;
 import classfile.attributes.CodeAttribute;
-import java.awt.Component;
+
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
+import java.awt.*;
 
 
 /**

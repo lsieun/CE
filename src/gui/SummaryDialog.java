@@ -14,7 +14,11 @@
 package gui;
 
 import guihelper.JavaFileFilter;
-import java.io.*;
+
+import javax.swing.*;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * Dialog to show summary of class files.
@@ -23,7 +27,7 @@ import java.io.*;
  * @author 	Tanmay K. Mohapatra
  * @version     2.00, 16th December, 2001
  */
-public class SummaryDialog extends javax.swing.JDialog {
+public class SummaryDialog extends JDialog {
     
     /** Creates new form SummaryDialog */
     public SummaryDialog(java.awt.Frame parent, boolean modal) {
@@ -44,10 +48,10 @@ public class SummaryDialog extends javax.swing.JDialog {
     private void initComponents() {//GEN-BEGIN:initComponents
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtSumary = new javax.swing.JTextArea();
-        btnSaveAs = new javax.swing.JButton();
-        btnClose = new javax.swing.JButton();
+        jScrollPane1 = new JScrollPane();
+        txtSumary = new JTextArea();
+        btnSaveAs = new JButton();
+        btnClose = new JButton();
 
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
@@ -100,13 +104,13 @@ public class SummaryDialog extends javax.swing.JDialog {
         String sFileName;
         FileWriter  fileWriter;
         
-        javax.swing.JFileChooser newFileChooser = new javax.swing.JFileChooser();
+        JFileChooser newFileChooser = new JFileChooser();
         newFileChooser.addChoosableFileFilter(new JavaFileFilter("html", "HTML Files"));
         newFileChooser.addChoosableFileFilter(new JavaFileFilter("doc", "Document Files"));
         newFileChooser.addChoosableFileFilter(new JavaFileFilter("txt", "Text Files"));
         int returnVal = newFileChooser.showSaveDialog(this);
         
-        if(returnVal != javax.swing.JFileChooser.APPROVE_OPTION) {
+        if(returnVal != JFileChooser.APPROVE_OPTION) {
             return;
         }
         
@@ -139,10 +143,10 @@ public class SummaryDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_closeDialog
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClose;
-    private javax.swing.JButton btnSaveAs;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtSumary;
+    private JButton btnClose;
+    private JButton btnSaveAs;
+    private JScrollPane jScrollPane1;
+    private JTextArea txtSumary;
     // End of variables declaration//GEN-END:variables
     
 }

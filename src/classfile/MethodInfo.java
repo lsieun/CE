@@ -19,15 +19,11 @@
 
 package classfile;
 
-import classfile.attributes.*;
-import classfile.attributes.Attribute;
-import classfile.attributes.ExceptionsAttribute;
-import classfile.attributes.CodeAttribute;
+import classfile.attributes.Attributes;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.util.Stack;
 import java.util.Vector;
 
 /**

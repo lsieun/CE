@@ -15,6 +15,8 @@ package guihelper;
 
 import classfile.AccessFlags;
 
+import javax.swing.*;
+
 /** This class provides the dialog for editing access flags.
  * <br><br>
  *
@@ -22,7 +24,7 @@ import classfile.AccessFlags;
  * @version    1.01, 17th Jan, 2002
  */
 
-public class AccessFlagEditorDialog extends javax.swing.JDialog {
+public class AccessFlagEditorDialog extends JDialog {
 
     AccessFlags flags; 
     
@@ -67,7 +69,7 @@ public class AccessFlagEditorDialog extends javax.swing.JDialog {
         flags.setStrict(chkStrict.isSelected());
     }
 
-    private void setAsInvalid(javax.swing.JCheckBox chk) {
+    private void setAsInvalid(JCheckBox chk) {
         chk.setEnabled(false);
         //chk.setBackground(new java.awt.Color(255, 204, 204));
     }
@@ -96,22 +98,22 @@ public class AccessFlagEditorDialog extends javax.swing.JDialog {
     private void initComponents() {//GEN-BEGIN:initComponents
         java.awt.GridBagConstraints gridBagConstraints;
 
-        chkPublic = new javax.swing.JCheckBox();
-        chkPrivate = new javax.swing.JCheckBox();
-        chkProtected = new javax.swing.JCheckBox();
-        chkStatic = new javax.swing.JCheckBox();
-        chkFinal = new javax.swing.JCheckBox();
-        chkSuper = new javax.swing.JCheckBox();
-        chkVolatile = new javax.swing.JCheckBox();
-        chkTransient = new javax.swing.JCheckBox();
-        chkInterface = new javax.swing.JCheckBox();
-        chkAbstract = new javax.swing.JCheckBox();
-        chkNative = new javax.swing.JCheckBox();
-        chkSynchronized = new javax.swing.JCheckBox();
-        chkStrict = new javax.swing.JCheckBox();
-        btnSave = new javax.swing.JButton();
-        btnClose = new javax.swing.JButton();
-        btnRefresh = new javax.swing.JButton();
+        chkPublic = new JCheckBox();
+        chkPrivate = new JCheckBox();
+        chkProtected = new JCheckBox();
+        chkStatic = new JCheckBox();
+        chkFinal = new JCheckBox();
+        chkSuper = new JCheckBox();
+        chkVolatile = new JCheckBox();
+        chkTransient = new JCheckBox();
+        chkInterface = new JCheckBox();
+        chkAbstract = new JCheckBox();
+        chkNative = new JCheckBox();
+        chkSynchronized = new JCheckBox();
+        chkStrict = new JCheckBox();
+        btnSave = new JButton();
+        btnClose = new JButton();
+        btnRefresh = new JButton();
 
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
@@ -256,22 +258,22 @@ public class AccessFlagEditorDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_closeDialog
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnClose;
-    private javax.swing.JButton btnRefresh;
-    private javax.swing.JButton btnSave;
-    private javax.swing.JCheckBox chkAbstract;
-    private javax.swing.JCheckBox chkFinal;
-    private javax.swing.JCheckBox chkInterface;
-    private javax.swing.JCheckBox chkNative;
-    private javax.swing.JCheckBox chkPrivate;
-    private javax.swing.JCheckBox chkProtected;
-    private javax.swing.JCheckBox chkPublic;
-    private javax.swing.JCheckBox chkStatic;
-    private javax.swing.JCheckBox chkStrict;
-    private javax.swing.JCheckBox chkSuper;
-    private javax.swing.JCheckBox chkSynchronized;
-    private javax.swing.JCheckBox chkTransient;
-    private javax.swing.JCheckBox chkVolatile;
+    private JButton btnClose;
+    private JButton btnRefresh;
+    private JButton btnSave;
+    private JCheckBox chkAbstract;
+    private JCheckBox chkFinal;
+    private JCheckBox chkInterface;
+    private JCheckBox chkNative;
+    private JCheckBox chkPrivate;
+    private JCheckBox chkProtected;
+    private JCheckBox chkPublic;
+    private JCheckBox chkStatic;
+    private JCheckBox chkStrict;
+    private JCheckBox chkSuper;
+    private JCheckBox chkSynchronized;
+    private JCheckBox chkTransient;
+    private JCheckBox chkVolatile;
     // End of variables declaration//GEN-END:variables
 
 }

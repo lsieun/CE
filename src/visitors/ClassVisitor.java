@@ -18,35 +18,35 @@ import classfile.attributes.*;
  * @version     1.00, 28th Sep, 2003
  */
 public interface ClassVisitor {
-    public void visitClass(ClassFile classFile);
-    public void visitAccessFlags(AccessFlags flags);
-    public void visitClassNames(ClassNames names);
-    public void visitConstantPool(ConstantPool pool);
-    public void visitConstantPoolInfo(ConstantPoolInfo poolInfo);
-    public void visitFields(Fields flds);
-    public void visitFieldInfo(FieldInfo fldInfo);
-    public void visitInterfaces(Interfaces interfaces);
-    public void visitMethods(Methods methods);
-    public void visitMethodInfo(MethodInfo methodInfo);
-    public void visitVersion(Version ver);
-    public void visitAttribute(Attribute attr);
-    public void visitAttributes(Attributes attrs);
-    // Attribute visits    
-    public void visitCodeAttribute(CodeAttribute codeattr);
-    public void visitCode(Code code);
-    public void visitConstantValueAttribute(ConstantValueAttribute constval);
-    public void visitDeprecatedAttribute(DeprecatedAttribute depr);
-    public void visitExceptionsAttribute(ExceptionsAttribute ex);
-    public void visitExceptionTableEntry(ExceptionTableEntry extab);
-    public void visitInnerClassesAttribute(InnerClassesAttribute classattr);
-    public void visitInnerClassInfo(InnerClassInfo innerclass);
-    public void visitInstruction(Instruction instr);
-    public void visitInstructions(Instructions instrs);    
-    public void visitLineNumberTableAttribute(LineNumberTableAttribute linenumtab);
-    public void visitLineNumberTableEntry(LineNumberTableEntry linenumtabentry);
-    public void visitLocalVariableTableAttribute(LocalVariableTableAttribute lvtab);
-    public void visitLocalVariableTableEntry(LocalVariableTableEntry lvtabentry);
-    public void visitSourceFileAttribute(SourceFileAttribute src);
-    public void visitSyntheticAttribute(SyntheticAttribute synth);
-    public void visitUnknownAttribute(UnknownAttribute unknown);
+    void visitClass(ClassFile classFile);
+    void visitAccessFlags(AccessFlags flags);
+    void visitClassNames(ClassNames names);
+    void visitConstantPool(ConstantPool pool);
+    void visitConstantPoolInfo(ConstantPoolInfo poolInfo);
+    void visitFields(Fields flds);
+    void visitFieldInfo(FieldInfo fldInfo);
+    void visitInterfaces(Interfaces interfaces);
+    void visitMethods(Methods methods);
+    void visitMethodInfo(MethodInfo methodInfo);
+    void visitVersion(Version ver);
+    void visitAttribute(Attribute attr);
+    void visitAttributes(Attributes attrs);
+    // Attribute visits
+    void visitCodeAttribute(CodeAttribute codeattr);
+    void visitCode(Code code);
+    void visitConstantValueAttribute(ConstantValueAttribute constval);
+    void visitDeprecatedAttribute(DeprecatedAttribute depr);
+    void visitExceptionsAttribute(ExceptionsAttribute ex);
+    void visitExceptionTableEntry(ExceptionTableEntry extab);
+    void visitInnerClassesAttribute(InnerClassesAttribute classattr);
+    void visitInnerClassInfo(InnerClassInfo innerclass);
+    void visitInstruction(Instruction instr);
+    void visitInstructions(Instructions instrs);
+    void visitLineNumberTableAttribute(LineNumberTableAttribute linenumtab);
+    void visitLineNumberTableEntry(LineNumberTableEntry linenumtabentry);
+    void visitLocalVariableTableAttribute(LocalVariableTableAttribute lvtab);
+    void visitLocalVariableTableEntry(LocalVariableTableEntry lvtabentry);
+    void visitSourceFileAttribute(SourceFileAttribute src);
+    void visitSyntheticAttribute(SyntheticAttribute synth);
+    void visitUnknownAttribute(UnknownAttribute unknown);
 }

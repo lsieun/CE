@@ -15,6 +15,7 @@ package guihelper.attributes;
 import classfile.attributes.LineNumberTableAttribute;
 import classfile.attributes.LineNumberTableEntry;
 
+import javax.swing.table.AbstractTableModel;
 import java.util.Vector;
 
 /** This class manages the table model for the line number table
@@ -26,7 +27,7 @@ import java.util.Vector;
  * @version    1.00, 5th Feb, 2002
  */
 
-public class LineNumberTableAttribTableModel extends javax.swing.table.AbstractTableModel {
+public class LineNumberTableAttribTableModel extends AbstractTableModel {
 
     private final String[] columnNames = {
         "",
